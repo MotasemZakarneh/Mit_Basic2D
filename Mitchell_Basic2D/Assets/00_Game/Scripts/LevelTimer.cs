@@ -33,7 +33,7 @@ public class LevelTimer : MonoBehaviour
             if(!lostText.gameObject.activeSelf)
             {
                 lostText.gameObject.SetActive(true);
-                SFXManager.PlayClip(timeIsUpSFX);
+                SFXManager.PlaySFX(timeIsUpSFX);
             }
             lostTime -= Time.deltaTime;
             if(lostTime<=0 && !didChange)

@@ -40,7 +40,7 @@ public class Player : MonoBehaviour
                 Vector2 jumpForce = Vector2.up * jumpSpeed;
                 rb2d.AddForce(jumpForce, ForceMode2D.Impulse);
                 isGrounded = false;
-                SFXManager.PlayClip(jumpSFX);
+                SFXManager.PlaySFX(jumpSFX);
             }
         }
         if (ghost.IsGhost)
@@ -99,6 +99,6 @@ public class Player : MonoBehaviour
         ghost.ResetGhost();
         rb2d.velocity = Vector2.zero;
 
-        SFXManager.PlayClip(resetSFX);
+        SFXManager.PlaySFX(resetSFX);
     }
 }

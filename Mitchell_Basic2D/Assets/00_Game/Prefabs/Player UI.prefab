@@ -1407,3 +1407,4 @@ MonoBehaviour:
   lostTime: 3
   timerText: {fileID: 402082685}
   lostText: {fileID: 7113639916180981191}
+  timeIsUpSFX: {fileID: 8300000, guid: 38eda69fa3f7eba0ca82b27bfae74402, type: 3}

@@ -135,3 +135,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   points: 5
+  takenSFX: {fileID: 8300000, guid: 27be9d86027c7345395a91a11361301f, type: 3}

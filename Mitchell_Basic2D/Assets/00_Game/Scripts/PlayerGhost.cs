@@ -12,6 +12,7 @@ public class PlayerGhost : MonoBehaviour
     [SerializeField] float ghostTime = 0.25f;
     [SerializeField] Color ghostColor = Color.blue;
     [SerializeField] BoxCollider2D collisionBody = null;
+    [SerializeField] BoxCollider2D ghostBody = null;
 
     [SerializeField] AudioClip startGhostingSFX = null;
     [SerializeField] AudioClip endGhostingSFX = null;
@@ -31,6 +32,7 @@ public class PlayerGhost : MonoBehaviour
 
         ghostCoinsCounter = ghostCoinsRequirement;
         oldColor = sr.color;
+        ghostBody.enabled = false;
     }
     void Update()
     {
@@ -56,19 +58,20 @@ public class PlayerGhost : MonoBehaviour
         if(ghostCounter<=0)
         {
             StopGhosting();
-            SFXManager.PlayClip(endGhostingSFX);
+            SFXManager.PlaySFX(endGhostingSFX);
         }
     }
 
     private void StartGhosting()
     {
-        SFXManager.PlayClip(startGhostingSFX);
+        SFXManager.PlaySFX(startGhostingSFX);
 
         ghostCounter = 1;
         isGhost = true;
         sr.color = ghostColor;
         collisionBody.enabled = false;
         ghostCoinsCounter -= ghostCoinsRequirement;
+        ghostBody.enabled = true;
     }
 
     private void StopGhosting()
@@ -76,6 +79,7 @@ public class PlayerGhost : MonoBehaviour
         isGhost = false;
         collisionBody.enabled = true;
         sr.color = oldColor;
+        ghostBody.enabled = false;
     }
 
     public void ResetGhost()
